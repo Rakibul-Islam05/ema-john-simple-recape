@@ -1,7 +1,8 @@
 import React from 'react';
 import './Cart.css';
+import { MdDelete } from "react-icons/md";
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart ,handleClearCart,children}) => {
     //cost cart = props.cart;
     // const {cart} = props;
 
@@ -30,6 +31,11 @@ const Cart = ({ cart }) => {
             <p>Total Shipping: ${totalShipping}</p>
             <p>Tax: ${tax.toFixed(2)}</p>
             <h5>Grand Total: ${grandTotal.toFixed(2)}</h5>
+            <button onClick={handleClearCart} className='btn-clear-cart'>
+                <span>Clear Cart</span>
+                <MdDelete className='delete' />
+            </button>
+            {children}
         </div>
     );
 };
